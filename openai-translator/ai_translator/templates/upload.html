@@ -1,0 +1,20 @@
+<html>
+<head>
+  <title>upload pdf</title>
+</head>
+<body>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class=flashes>
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+  <form method=post enctype=multipart/form-data action="{{ url_for('file_upload') }}">
+    <p><input type=file name=file></p>
+    <p><input type=submit value=Upload></p>
+  </form>
+</body>
+</html>
